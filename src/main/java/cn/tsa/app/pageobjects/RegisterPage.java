@@ -5,13 +5,14 @@ import org.openqa.selenium.WebElement;
 
 import cn.tsa.app.constant.Constant;
 import cn.tsa.app.util.ObjectMap;
+import io.appium.java_client.android.AndroidDriver;
 
 public class RegisterPage {
 	private WebElement element;
 	private ObjectMap objectMap=new ObjectMap(Constant.propertyFilePath);
-	public WebDriver driver=null;
+	public AndroidDriver driver=null;
 	
-	public RegisterPage(WebDriver driver) {
+	public RegisterPage(AndroidDriver driver) {
 		this.driver=driver;
 	}
 	

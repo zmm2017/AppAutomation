@@ -9,7 +9,6 @@
           <include name="beforeMethod"/>
           <include name="beforeClass"/>
           <include name="afterClass"/>
-          <include name="LoginWithCorrectInfo"/>
           <include name="loginWithUnregisteredAct"/>
           <include name="afterMethod"/>
         </methods>

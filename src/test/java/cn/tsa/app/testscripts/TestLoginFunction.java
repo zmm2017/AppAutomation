@@ -2,6 +2,7 @@ package cn.tsa.app.testscripts;
 
 import org.testng.annotations.Test;
 
+import cn.tsa.app.modules.InitPage;
 import cn.tsa.app.modules.LoginSystem;
 import cn.tsa.app.pageobjects.LoginPage;
 import cn.tsa.app.pageobjects.ObtainEvidence;
@@ -32,7 +33,7 @@ public class TestLoginFunction {
 	  System.out.println("*************开始执行第1条用例，使用错误的密码登录***********************");
 	  loginPage.getLoginPhone("com.tsa.app.loginPage.login_phone").sendKeys("18210706623");
 	  loginPage.getLoginPwd("com.tsa.app.loginPage.login_pssword").sendKeys("12345678");
-	  TouchAction action=new TouchAction(driver);
+	  TouchAction action=new TouchAction(loginPage.driver);
 	  action.tap(600, 300).perform();
 	  action.tap(loginPage.getLoginBtn("com.tsa.app.loginPage.login_btn")).perform();
 	  
@@ -49,7 +50,7 @@ public class TestLoginFunction {
 	  loginPage.getLoginPhone("com.tsa.app.loginPage.login_phone").sendKeys("182 0000 0077");
 	  loginPage.getLoginPwd("com.tsa.app.loginPage.login_pssword").clear();
 	  loginPage.getLoginPwd("com.tsa.app.loginPage.login_pssword").sendKeys("123456");
-	  TouchAction action=new TouchAction(driver);
+	  TouchAction action=new TouchAction(loginPage.driver);
 	  action.tap(600, 300).perform();
 	  action.tap(loginPage.getLoginBtn("com.tsa.app.loginPage.login_btn")).perform();
 	  
@@ -65,8 +66,6 @@ public class TestLoginFunction {
 	  result=obtainEvidence.cameraObtainEvidence("com.tsa.app.ObtainEvidence.camera").isDisplayed();
 	  System.out.println(result==true?"成功登录，通过测试":"登录失败，没通过测试");
 	  Assert.assertTrue(result);
-	  System.out.println("\n");
-	  System.out.println("**************************所有用例执行完毕*******************************");
   }
   
   @BeforeMethod
@@ -79,33 +78,14 @@ public class TestLoginFunction {
 
   @BeforeClass
   public void beforeClass() throws MalformedURLException, InterruptedException {
-	  //1.设置capabilities
-	  capabilites.setCapability("deviceName", "vivo_v3m_a-UOHQP7QKB6WGVGGI");
-	  capabilites.setCapability("automationName", "Appium");
-	  capabilites.setCapability("platformName", "Android");
-	  capabilites.setCapability("platformVersion", "5.1");
-	  capabilites.setCapability("appPackage", "com.unitrust.tsa");
-	  capabilites.setCapability("appActivity", "cn.tsa.activity.SplashActivity");
-	  //2.实例化AndroidDriver对象
-	  driver=new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilites);
-	  //3.app被启动后操作引导页
-	  System.out.println("app启动中，请等待5秒钟...");
-	  Thread.sleep(5000);
-	  System.out.println("启动页展示完毕，准备操作引导页");
-	  driver.swipe(700, 640, 100, 640, 3000);
-	  driver.swipe(700, 640, 100, 640, 3000);
-	  driver.swipe(700, 640, 100, 640, 3000);
-	  driver.swipe(700, 640, 100, 640, 3000);
-	  //4.点击体验按钮
-	  driver.findElement(By.id("com.unitrust.tsa:id/btn")).click();
-	  //5.点击立即领取红包按钮，然后打开app登录页面
-	  driver.findElement(By.id("com.unitrust.tsa:id/red_envlpoes_btn")).click();
-	  //6.给LoginPage对象赋值
-	  loginPage=new LoginPage(this.driver);
+	  System.out.println("*************开始执行登录功能的用例**********************************\n");
+	  loginPage=InitPage.execute();
   }
 
   @AfterClass
   public void afterClass() {
+	  System.out.println("\n");
+	  System.out.println("*************登录功能的所有用例执行完毕*******************************");
   }
 
 }
