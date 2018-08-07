@@ -24,7 +24,7 @@ public class TestRegisterFunction {
 	public static RegisterPage registerPage=null;
 	public static Boolean result=null;
 	
-  @Test(priority=0)
+  @Test
   public void loadRegisterPage() throws Exception {
 	  System.out.println("*************开始执行第1条用例，从登录页面跳转到注册页面*****************");
 	  registerPage=NavigateToRegisterPage.execute(loginPage);
@@ -44,7 +44,7 @@ public class TestRegisterFunction {
   @AfterClass
   public void afterClass() {
 	  System.out.println("\n");
-	  System.out.println("*************注册功能的所有用例执行完毕*******************************");
+	  System.out.println("*************注册功能的所有用例执行完毕*******************************\n");
   }
 
 }

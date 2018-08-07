@@ -9,10 +9,18 @@
           <include name="beforeMethod"/>
           <include name="beforeClass"/>
           <include name="afterClass"/>
+          <include name="LoginWithCorrectInfo"/>
           <include name="loginWithUnregisteredAct"/>
           <include name="afterMethod"/>
         </methods>
       </class> <!-- cn.tsa.app.testscripts.TestLoginFunction -->
+      <class name="cn.tsa.app.testscripts.TestRegisterFunction">
+        <methods>
+          <include name="beforeClass"/>
+          <include name="loadRegisterPage"/>
+          <include name="afterClass"/>
+        </methods>
+      </class> <!-- cn.tsa.app.testscripts.TestRegisterFunction -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

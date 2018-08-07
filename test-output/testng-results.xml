@@ -1,25 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="23817" started-at="2018-08-07T01:37:43Z" finished-at="2018-08-07T01:38:06Z">
+  <suite name="Suite1" duration-ms="101707" started-at="2018-08-07T08:04:24Z" finished-at="2018-08-07T08:06:06Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="23817" started-at="2018-08-07T01:37:43Z" finished-at="2018-08-07T01:38:06Z">
+    <test name="Regression1" duration-ms="101707" started-at="2018-08-07T08:04:24Z" finished-at="2018-08-07T08:06:06Z">
       <class name="cn.tsa.app.testscripts.TestRegisterFunction">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:cn.tsa.app.testscripts.TestRegisterFunction@491cc5c9]" name="beforeClass" is-config="true" duration-ms="22489" started-at="2018-08-07T01:37:43Z" finished-at="2018-08-07T01:38:05Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:cn.tsa.app.testscripts.TestRegisterFunction@1d371b2d]" name="beforeClass" is-config="true" duration-ms="23044" started-at="2018-08-07T08:05:42Z" finished-at="2018-08-07T08:06:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="loadRegisterPage()[pri:0, instance:cn.tsa.app.testscripts.TestRegisterFunction@491cc5c9]" name="loadRegisterPage" duration-ms="1306" started-at="2018-08-07T01:38:05Z" finished-at="2018-08-07T01:38:06Z">
+        <test-method status="PASS" signature="loadRegisterPage()[pri:0, instance:cn.tsa.app.testscripts.TestRegisterFunction@1d371b2d]" name="loadRegisterPage" duration-ms="1281" started-at="2018-08-07T08:06:05Z" finished-at="2018-08-07T08:06:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadRegisterPage -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:cn.tsa.app.testscripts.TestRegisterFunction@491cc5c9]" name="afterClass" is-config="true" duration-ms="1" started-at="2018-08-07T01:38:06Z" finished-at="2018-08-07T01:38:06Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:cn.tsa.app.testscripts.TestRegisterFunction@1d371b2d]" name="afterClass" is-config="true" duration-ms="1" started-at="2018-08-07T08:06:06Z" finished-at="2018-08-07T08:06:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
       </class> <!-- cn.tsa.app.testscripts.TestRegisterFunction -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      <class name="cn.tsa.app.testscripts.TestLoginFunction">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:cn.tsa.app.testscripts.TestLoginFunction@4e718207]" name="beforeClass" is-config="true" duration-ms="24111" started-at="2018-08-07T08:04:24Z" finished-at="2018-08-07T08:04:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="loginWithWrongPwd()[pri:0, instance:cn.tsa.app.testscripts.TestLoginFunction@4e718207]" name="loginWithWrongPwd" duration-ms="15026" started-at="2018-08-07T08:04:48Z" finished-at="2018-08-07T08:05:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithWrongPwd -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:cn.tsa.app.testscripts.TestLoginFunction@4e718207]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2018-08-07T08:04:48Z" finished-at="2018-08-07T08:04:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:cn.tsa.app.testscripts.TestLoginFunction@4e718207]" name="beforeMethod" is-config="true" duration-ms="1" started-at="2018-08-07T08:05:03Z" finished-at="2018-08-07T08:05:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:cn.tsa.app.testscripts.TestLoginFunction@4e718207]" name="afterMethod" is-config="true" duration-ms="0" started-at="2018-08-07T08:05:03Z" finished-at="2018-08-07T08:05:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="loginWithUnregisteredAct()[pri:0, instance:cn.tsa.app.testscripts.TestLoginFunction@4e718207]" name="loginWithUnregisteredAct" duration-ms="20172" started-at="2018-08-07T08:05:03Z" finished-at="2018-08-07T08:05:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithUnregisteredAct -->
+        <test-method status="PASS" signature="LoginWithCorrectInfo()[pri:0, instance:cn.tsa.app.testscripts.TestLoginFunction@4e718207]" name="LoginWithCorrectInfo" duration-ms="18032" started-at="2018-08-07T08:05:24Z" finished-at="2018-08-07T08:05:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginWithCorrectInfo -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:cn.tsa.app.testscripts.TestLoginFunction@4e718207]" name="afterMethod" is-config="true" duration-ms="0" started-at="2018-08-07T08:05:24Z" finished-at="2018-08-07T08:05:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:cn.tsa.app.testscripts.TestLoginFunction@4e718207]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2018-08-07T08:05:24Z" finished-at="2018-08-07T08:05:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:cn.tsa.app.testscripts.TestLoginFunction@4e718207]" name="afterMethod" is-config="true" duration-ms="1" started-at="2018-08-07T08:05:42Z" finished-at="2018-08-07T08:05:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:cn.tsa.app.testscripts.TestLoginFunction@4e718207]" name="afterClass" is-config="true" duration-ms="0" started-at="2018-08-07T08:05:42Z" finished-at="2018-08-07T08:05:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- cn.tsa.app.testscripts.TestLoginFunction -->
+    </test> <!-- Regression1 -->
+  </suite> <!-- Suite1 -->
 </testng-results>

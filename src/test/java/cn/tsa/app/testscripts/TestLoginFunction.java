@@ -28,7 +28,7 @@ public class TestLoginFunction {
 	LoginPage loginPage=null;
 
 	//输入错误的用户名和密码
-  @Test(priority=0)
+  @Test
   public void loginWithWrongPwd() throws Exception {
 	  System.out.println("*************开始执行第1条用例，使用错误的密码登录***********************");
 	  loginPage.getLoginPhone("com.tsa.app.loginPage.login_phone").sendKeys("18210706623");
@@ -43,7 +43,7 @@ public class TestLoginFunction {
   }
   
   //使用未注册的账号登录
-  @Test(priority=1)
+  @Test
   public void loginWithUnregisteredAct() throws Exception {
 	  System.out.println("*************开始执行第2条用例，使用未注册的手机号登录*******************");
 	  loginPage.getLoginPhone("com.tsa.app.loginPage.login_phone").clear();
@@ -59,7 +59,7 @@ public class TestLoginFunction {
 	  System.out.println(result==true?"登录失败，测试通过":"登录成功，没通过测试");
   }
   
-  @Test(priority=2)
+  @Test
   public void LoginWithCorrectInfo() throws Exception {
 	  System.out.println("*************开始执行第3条用例，使用正确信息登录************************");
 	  ObtainEvidence obtainEvidence=LoginSystem.executeLogin("18210706623", "123456", loginPage);
@@ -85,7 +85,7 @@ public class TestLoginFunction {
   @AfterClass
   public void afterClass() {
 	  System.out.println("\n");
-	  System.out.println("*************登录功能的所有用例执行完毕*******************************");
+	  System.out.println("*************登录功能的所有用例执行完毕*******************************\n");
   }
 
 }
