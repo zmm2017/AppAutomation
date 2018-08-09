@@ -3,21 +3,10 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="cn.tsa.app.testscripts.TestLoginFunction">
-        <methods>
-          <include name="loginWithWrongPwd"/>
-          <include name="beforeMethod"/>
-          <include name="beforeClass"/>
-          <include name="afterClass"/>
-          <include name="LoginWithCorrectInfo"/>
-          <include name="loginWithUnregisteredAct"/>
-          <include name="afterMethod"/>
-        </methods>
-      </class> <!-- cn.tsa.app.testscripts.TestLoginFunction -->
       <class name="cn.tsa.app.testscripts.TestRegisterFunction">
         <methods>
+          <include name="checkProtocolBox"/>
           <include name="beforeClass"/>
-          <include name="loadRegisterPage"/>
           <include name="afterClass"/>
         </methods>
       </class> <!-- cn.tsa.app.testscripts.TestRegisterFunction -->

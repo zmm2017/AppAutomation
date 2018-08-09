@@ -70,5 +70,10 @@ public class RegisterPage {
 		element=driver.findElement(objectMap.getLocator(elementNameInPropertyFile));
 		return element;
 	}
+	
+	public WebElement getBackBtn(String elementNameInPropertyFile) throws Exception {
+		element=driver.findElement(objectMap.getLocator(elementNameInPropertyFile));
+		return element;
+	}
 
 }
