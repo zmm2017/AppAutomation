@@ -5,8 +5,8 @@
     <classes>
       <class name="cn.tsa.app.testscripts.TestRegisterFunction">
         <methods>
-          <include name="checkProtocolBox"/>
           <include name="beforeClass"/>
+          <include name="loadUsageProtocolPage"/>
           <include name="afterClass"/>
         </methods>
       </class> <!-- cn.tsa.app.testscripts.TestRegisterFunction -->

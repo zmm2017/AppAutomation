@@ -13,6 +13,15 @@
       <class name="cn.tsa.app.testscripts.TestRegisterFunction">
 	      	<methods>
 	      		<include name="loadRegisterPage"></include>
+	      		<include name="checkRegisterPhone"></include>
+	      		<include name="checkRegisterCodeBtn"></include>
+	      		<include name="checkRegisterCodeText"></include>
+	      		<include name="checkRegisterPwd"></include>
+	      		<include name="checkRegisterNum"></include>
+	      		<include name="checkProtocolBox"></include>
+	      		<include name="backLoginPage"></include>
+	      		<include name="loadUsageProtocolPage"></include>
+	      		<include name="loadPrivacyProtocolPage"></include>
 	      	</methods>
       </class>
     </classes>

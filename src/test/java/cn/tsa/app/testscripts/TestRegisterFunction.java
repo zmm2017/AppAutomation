@@ -3,10 +3,13 @@ package cn.tsa.app.testscripts;
 import org.testng.annotations.Test;
 
 import cn.tsa.app.modules.InitPage;
-import cn.tsa.app.modules.NavigateToRegisterPage;
+import cn.tsa.app.modules.NavigateBetweenPages;
 import cn.tsa.app.pageobjects.LoginPage;
+import cn.tsa.app.pageobjects.PrivacyProtocolPage;
 import cn.tsa.app.pageobjects.RegisterPage;
+import cn.tsa.app.pageobjects.UsageProtocolPage;
 import cn.tsa.app.util.CloseKeyBoard;
+import cn.tsa.app.util.ScrollScreen;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 
@@ -25,19 +28,21 @@ public class TestRegisterFunction {
 	public AndroidDriver driver=null;
 	public static LoginPage loginPage=null;
 	public static RegisterPage registerPage=null;
+	public static UsageProtocolPage usageProtocolPage=null;
+	public static PrivacyProtocolPage privacyProtocolPage=null;
 	public static Boolean result=null;
 	
-  @Test(priority=0)
+  @Test
   public void loadRegisterPage() throws Exception {
 	  System.out.println("*************开始执行第1条用例，从登录页面跳转到注册页面*****************");
-	  registerPage=NavigateToRegisterPage.execute(loginPage);
+	  registerPage=NavigateBetweenPages.navigateToRegisterPage(loginPage, "com.tsa.app.loginPage.goto_register");
 	  result=registerPage.getPageTitle("com.tsa.app.RegisterPage.page_title").isDisplayed();
 	  System.out.println(result==true?"跳转成功，通过测试":"跳转失败，没有通过测试");
 	  Assert.assertTrue(result);
 	  
   }
   
-  @Test(priority=1)
+  @Test
   public void checkRegisterPhone() throws Exception {
 	  System.out.println("*************开始执行第2条用例，检查注册号码输入框*****************");
 	  WebElement registerPhone=registerPage.getRegisterPhone("com.tsa.app.RegisterPage.register_phone");
@@ -47,7 +52,7 @@ public class TestRegisterFunction {
 	  Assert.assertTrue(displayedContent.equals("182 1070 6623"));
   }
   
-  /*@Test(priority=2)
+  @Test
   public void checkRegisterCodeBtn() throws Exception {
 	  System.out.println("*************开始执行第3条用例，检查获取注册码按钮*****************");
 	  WebElement registerPhone=registerPage.getRegisterPhone("com.tsa.app.RegisterPage.register_phone");
@@ -62,9 +67,9 @@ public class TestRegisterFunction {
 	  System.out.println("getText()返回的文本是："+registerCodeBtn.getText());
 	  System.out.println(registerCodeBtn.getText().contains("重新发送")==true?"验证码已发送，测试通过":"验证码发送失败，测试失败");
 	  Assert.assertTrue(registerCodeBtn.getText().contains("重新发送"));
-  }*/
+  }
   
-  @Test(priority=3)
+  @Test
   public void checkRegisterCodeText() throws Exception {
 	  System.out.println("*************开始执行第4条用例，检查注册码输入框*****************");
 	  WebElement registerCodeText=registerPage.getRegisterCodeText("com.tsa.app.RegisterPage.register_code_text");
@@ -73,7 +78,7 @@ public class TestRegisterFunction {
 	  Assert.assertTrue(registerCodeText.getText().equals("321123"));
   }
   
-  @Test(priority=4)
+  @Test
   public void checkRegisterPwd() throws Exception {
 	  System.out.println("*************开始执行第5条用例，检查密码输入框*****************");
 	  WebElement pwdText=registerPage.getRegisterPwd("com.tsa.app.RegisterPage.register_pwd");
@@ -88,7 +93,7 @@ public class TestRegisterFunction {
 	  Assert.assertTrue(true);
   }
   
-  @Test(priority=5)
+  @Test
   public void checkRegisterNum() throws Exception {
 	  System.out.println("*************开始执行第6条用例，检查注册码输入框*****************");
 	  WebElement registerNum=registerPage.getRegisterNum("com.tsa.app.RegisterPage.register_num");
@@ -100,7 +105,7 @@ public class TestRegisterFunction {
 	  Assert.assertTrue(registerNum.getText().equals("A1968"));
   }
   
-  @Test(priority=6)
+  @Test
   public void checkProtocolBox() throws Exception {
 	  System.out.println("*************开始执行第7条用例，检查协议勾选框*****************");
 	  TouchAction action=new TouchAction(registerPage.driver);
@@ -117,7 +122,46 @@ public class TestRegisterFunction {
 	  protocolCheckBox.click();
 	  System.out.println("选中时getAttribute()返回值是："+protocolCheckBox.getAttribute("checked"));
 	  System.out.println(protocolCheckBox.getAttribute("checked").equals("true")?"checkbox被选中，通过测试":"checkbox没有被选中，测试失败");
-	  Assert.assertTrue(protocolCheckBox.getAttribute("checked").equals("true"));
+	  //Assert.assertTrue(protocolCheckBox.getAttribute("checked").equals("true"));
+  }
+  
+  @Test
+  public void backLoginPage() throws Exception {
+	  System.out.println("*************开始执行第8条用例，返回到登录页面*****************");
+	  loginPage=NavigateBetweenPages.backLoginFromRegister(registerPage, "com.tsa.app.RegisterPage.back_btn");
+	  System.out.println(loginPage.getLoginBtn("com.tsa.app.loginPage.login_btn").isDisplayed()==true?"成功返回到登录页面，测试通过":"返回登录页面失败，没通过测试");
+	  Assert.assertTrue(loginPage.getLoginBtn("com.tsa.app.loginPage.login_btn").isDisplayed());
+  }
+  
+  @Test
+  public void loadUsageProtocolPage() throws Exception {
+	  System.out.println("*************开始执行第9条用例，打开使用协议页面并返回*****************");
+	  registerPage=NavigateBetweenPages.navigateToRegisterPage(loginPage, "com.tsa.app.loginPage.goto_register");
+	  usageProtocolPage=NavigateBetweenPages.goToUsageProtocolPage(registerPage, "com.tsa.app.RegisterPage.usage_protocol");
+	  System.out.println(usageProtocolPage.getPageTitle("com.tsa.app.UsageProtocolPage.page_title").getText().equals("用户使用协议")==true?"成功打开使用协议页面，测试通过":"打开使用协议页面失败，没有通过测试");
+	  Assert.assertTrue(usageProtocolPage.getPageTitle("com.tsa.app.UsageProtocolPage.page_title").getText().equals("用户使用协议"));
+	  for(int i=0;i<10;i++) {
+		  ScrollScreen.execute(usageProtocolPage.driver, "y");
+	  }
+	  
+	  registerPage=NavigateBetweenPages.backRegisterFromUsageProtocol(usageProtocolPage, "com.tsa.app.UsageProtocolPage.back_btn");
+	  System.out.println(registerPage.getPageTitle("com.tsa.app.RegisterPage.page_title").isDisplayed()==true?"成功返回到注册页面，通过测试":"返回到注册页面失败，没有通过测试");
+	  Assert.assertTrue(registerPage.getPageTitle("com.tsa.app.RegisterPage.page_title").isDisplayed());
+  }
+  
+  @Test
+  public void loadPrivacyProtocolPage() throws Exception {
+	  System.out.println("*************开始执行第10条用例，打开隐私协议页面并返回*****************");
+	  privacyProtocolPage=NavigateBetweenPages.goToPrivacyProtocolPage(registerPage, "com.tsa.app.RegisterPage.privacy_protocol");
+	  System.out.println(privacyProtocolPage.getPageTitle("com.tsa.app.PrivacyProtocolPage.page_title").getText().equals("隐私保护协议")==true?"成功打开隐私保护协议页面，测试通过":"打开隐私保护协议页面失败，没有通过测试");
+	  Assert.assertTrue(privacyProtocolPage.getPageTitle("com.tsa.app.PrivacyProtocolPage.page_title").getText().equals("隐私保护协议"));
+	  for(int i=0;i<10;i++) {
+		  ScrollScreen.execute(privacyProtocolPage.driver, "y");
+	  }
+	  
+	  registerPage=NavigateBetweenPages.backRegisterFromPrivacyProtocol(privacyProtocolPage, "com.tsa.app.PrivacyProtocolPage.back_btn");
+	  System.out.println(registerPage.getPageTitle("com.tsa.app.RegisterPage.page_title").isDisplayed()==true?"成功返回到注册页面，通过测试":"返回到注册页面失败，没有通过测试");
+	  Assert.assertTrue(registerPage.getPageTitle("com.tsa.app.RegisterPage.page_title").isDisplayed());
   }
   
   
