@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="cn.tsa.app.testscripts.TestRegisterFunction">
+      <class name="cn.tsa.app.testscripts.TestObtainEvidenceFuntion">
         <methods>
           <include name="beforeClass"/>
-          <include name="loadUsageProtocolPage"/>
+          <include name="takePicture"/>
           <include name="afterClass"/>
         </methods>
-      </class> <!-- cn.tsa.app.testscripts.TestRegisterFunction -->
+      </class> <!-- cn.tsa.app.testscripts.TestObtainEvidenceFuntion -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

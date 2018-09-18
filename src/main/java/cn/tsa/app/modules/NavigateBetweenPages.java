@@ -1,8 +1,10 @@
 package cn.tsa.app.modules;
 
 import cn.tsa.app.pageobjects.LoginPage;
+import cn.tsa.app.pageobjects.ObtainEvidence;
 import cn.tsa.app.pageobjects.PrivacyProtocolPage;
 import cn.tsa.app.pageobjects.RegisterPage;
+import cn.tsa.app.pageobjects.TakePicturePage;
 import cn.tsa.app.pageobjects.UsageProtocolPage;
 
 public class NavigateBetweenPages {
@@ -34,5 +36,15 @@ public class NavigateBetweenPages {
 	public static RegisterPage backRegisterFromPrivacyProtocol(PrivacyProtocolPage privacyProtocolPage,String elementNameInPropertyFile) throws Exception {
 		privacyProtocolPage.getBackBtn(elementNameInPropertyFile).click();
 		return new RegisterPage(privacyProtocolPage.driver);
+	}
+	
+	public static TakePicturePage goToTakePicturePage(ObtainEvidence obtainEvidence,String obtainPictureEvidenceElementName) throws Exception {
+		obtainEvidence.cameraObtainEvidence(obtainPictureEvidenceElementName).click();
+		return new TakePicturePage(obtainEvidence.driver);
+	}
+	
+	public static ObtainEvidence backObtainEvidencePageFromPicture(TakePicturePage takePicturePage,String backBtnElementName) throws Exception {
+		takePicturePage.getBackBtn(backBtnElementName).click();
+		return new ObtainEvidence(takePicturePage.driver);
 	}
 }

@@ -33,6 +33,7 @@ public class InitPage {
 		//4.点击体验按钮
 		driver.findElement(By.id("com.unitrust.tsa:id/btn")).click();
 		//5.点击立即领取红包按钮，然后打开app登录页面
+		Thread.sleep(5000);
 		driver.findElement(By.id("com.unitrust.tsa:id/red_envlpoes_btn")).click();
 		
 		
